@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.fuente-titulo {
+  font-family: 'Sora', sans-serif;
+}
+
+.fuente-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal.reveal--visible {
+    transition-duration: 0.001ms;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: #5B4CFF;
+  transition: width 200ms ease;
+}
+
+.nav-link.activo::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.activo {
+  color: #5B4CFF;
+}
+
+
+::selection {
+  background: #5B4CFF;
+  color: #ffffff;
+}
+
+.tarjeta-proyecto img {
+  transition: transform 400ms ease;
+}
+
+.tarjeta-proyecto:hover img {
+  transform: scale(1.04);
+}
+
+#btnArriba {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+  transform: translateY(8px);
+}
+
+#btnArriba.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
